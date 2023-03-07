@@ -34,7 +34,7 @@ run_task() {
       case $line in
          *"$keyword")
             task_name="${line%%"$keyword"}"
-            if [ ! -e /tmp/"$(date +%d.%m.%y)-$task_name" ];then printf "%bExecuting task: %s%b\n" "$CYAN" "$task_name" "$NC" && $task_name && :> /tmp/"$(date +%d.%m.%y)-$task_name";else printf '%bTask %s already executed today.%b\n' "$CYAN" "$task_name" "$NC";fi
+            if [ ! -e /tmp/"$(date +%d.%m.%y)-$task_name" ];then printf "%bExecuting task: %s%b\n" "$CYAN" "$task_name" "$NC" && $task_name < /dev/tty && :> /tmp/"$(date +%d.%m.%y)-$task_name";else printf '%bTask %s already executed today.%b\n' "$CYAN" "$task_name" "$NC";fi
          ;;
          *)
          ;;
