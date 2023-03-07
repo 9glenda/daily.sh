@@ -1,11 +1,18 @@
 #!/bin/sh
 
-backup() { # Sunday
+status() { # Status
+  echo "Status"
+}
+backup() { # Tuesday
     echo "Sunday, time to backup your files"
-    ~/backup.sh 
+    read -n 1 -r yn
+    if [ "$yn" == "y" ];then
+    #~/backup.sh 
+    echo "backup"
+    fi
 }
 
 update() {
     echo "time to update your system"
-    ~/update.sh
+    #~/update.sh
 }
